@@ -1,0 +1,11 @@
+<!--test.wxml-->
+<navigation-bar title="薪资查询" back="{{true}}" color="black" background="#FFF"></navigation-bar>
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="container">
+    <view class="page-content">
+      <view class="page-header">
+        <text class="page-desc">各行业岗位薪资水平参考</text>
+      </view>
+    </view>
+  </view>
+</scroll-view>

@@ -1,0 +1,173 @@
+/* page4.wxss - 历史记录 */
+
+/* 横向滚动Tab */
+.tabs-scroll {
+  width: 100%;
+  white-space: nowrap;
+  margin-bottom: 20rpx;
+}
+
+.tabs {
+  display: flex;
+  gap: 12rpx;
+}
+
+.tab-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14rpx 28rpx;
+  border-radius: 10rpx;
+  background-color: #F5F6FA;
+  flex-shrink: 0;
+}
+
+.tab-item.active {
+  background-color: #2196F3;
+}
+
+.tab-text {
+  font-size: 24rpx;
+  font-weight: 600;
+  color: #666;
+}
+
+.tab-item.active .tab-text {
+  color: #FFFFFF;
+}
+
+/* 列表 */
+.history-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12rpx;
+}
+
+.history-item {
+  background-color: #FFFFFF;
+  border-radius: 12rpx;
+  padding: 20rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
+}
+
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.history-title {
+  font-size: 28rpx;
+  font-weight: 700;
+  color: #2C3E50;
+  flex: 1;
+}
+
+.history-time {
+  font-size: 20rpx;
+  color: #999;
+  margin-left: 10rpx;
+  white-space: nowrap;
+}
+
+.history-type {
+  font-size: 20rpx;
+  color: #2196F3;
+  background-color: #EDF4FF;
+  padding: 4rpx 10rpx;
+  border-radius: 8rpx;
+  align-self: flex-start;
+}
+
+.history-preview {
+  font-size: 24rpx;
+  color: #666;
+  line-height: 1.5;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.history-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16rpx;
+  margin-top: 6rpx;
+}
+
+.action-button {
+  font-size: 22rpx;
+  color: #2196F3;
+  padding: 6rpx 16rpx;
+  border: 1rpx solid #2196F3;
+  border-radius: 8rpx;
+}
+
+.action-button.delete {
+  color: #F44336;
+  border-color: #F44336;
+}
+
+/* 职业推荐标签 */
+.career-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8rpx;
+}
+
+.career-tag {
+  font-size: 22rpx;
+  color: #FF9800;
+  background-color: #FFF3E0;
+  padding: 4rpx 12rpx;
+  border-radius: 6rpx;
+}
+
+/* AI面试摘要 */
+.defense-summary {
+  display: flex;
+  gap: 16rpx;
+  align-items: center;
+}
+
+.defense-score {
+  font-size: 22rpx;
+  color: #4CAF50;
+  font-weight: 600;
+}
+
+.defense-meta {
+  font-size: 22rpx;
+  color: #999;
+}
+
+/* 空状态 */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80rpx 40rpx;
+}
+
+.empty-icon {
+  font-size: 80rpx;
+  margin-bottom: 16rpx;
+}
+
+.empty-text {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #999;
+  margin-bottom: 8rpx;
+}
+
+.empty-hint {
+  font-size: 22rpx;
+  color: #CCC;
+}

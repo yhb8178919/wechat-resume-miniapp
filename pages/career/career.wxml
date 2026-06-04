@@ -1,0 +1,63 @@
+<!--career.wxml-->
+<navigation-bar title="职业推荐" back="{{true}}" color="black" background="#FFF"></navigation-bar>
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="container">
+    <view class="page-content">
+      <view class="page-header">
+        <text class="page-desc">根据简历内容推荐适合的职业方向</text>
+      </view>
+
+      <view class="content-section">
+        <view class="import-section">
+          <view class="upload-box" bindtap="importDocument">
+            <text class="upload-icon">📄</text>
+            <text class="upload-text">点击导入简历</text>
+            <text class="upload-hint">支持 .txt 文件格式</text>
+          </view>
+          <view class="uploaded-file" wx:if="{{importedFile}}">
+            <text class="file-icon">✓</text>
+            <text class="file-name">{{importedFile}}</text>
+          </view>
+        </view>
+
+        <view class="input-group">
+          <text class="label">个人姓名</text>
+          <input class="input" placeholder="请输入您的姓名" bindinput="bindTopicInput" value="{{topic}}" />
+        </view>
+
+        <view class="input-group">
+          <text class="label">简历内容</text>
+          <textarea class="textarea" placeholder="请输入简历主要内容或摘要" bindinput="bindContentInput" value="{{content}}" />
+        </view>
+
+        <button class="recommend-button" bindtap="recommendCareer" disabled="{{recommending}}">
+          {{recommending ? '分析中...' : '推荐职业'}}
+        </button>
+
+        <view class="result-area" wx:if="{{recommendations && recommendations.length > 0}}">
+          <view class="result-header">
+            <text class="result-title">推荐职业</text>
+            <view class="result-actions">
+              <text class="action-btn" bindtap="copyRecommendations">复制</text>
+              <text class="action-btn" bindtap="downloadRecommendations">下载</text>
+            </view>
+          </view>
+          <view class="recommendation-list">
+            <view wx:for="{{recommendations}}" wx:key="index" class="recommendation-item">
+              <view class="recommendation-rank">{{index + 1}}</view>
+              <view class="recommendation-content">
+                <text class="recommendation-job">{{item.job}}</text>
+                <text class="recommendation-desc">{{item.description}}</text>
+                <text class="recommendation-reason">推荐理由：{{item.reason}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+
+        <view class="result-area empty" wx:if="{{recommendations !== null && recommendations.length === 0}}">
+          <text class="empty-result-text">AI未能返回有效的推荐结果，请调整简历内容后重试</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>

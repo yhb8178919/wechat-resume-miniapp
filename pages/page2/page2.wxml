@@ -1,0 +1,47 @@
+<!--page2.wxml-->
+<navigation-bar title="AI评估简历" back="{{true}}" color="black" background="#FFF"></navigation-bar>
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="container">
+    <view class="page-content">
+      <view class="page-header">
+        <text class="page-desc">上传简历获取专业评估建议</text>
+      </view>
+      
+      <view class="content-section">
+        <view class="upload-section">
+          <view class="upload-box" bindtap="uploadPaper">
+            <text class="upload-icon">📄</text>
+            <text class="upload-text">点击上传简历</text>
+            <text class="upload-hint">支持 .txt 文件格式</text>
+          </view>
+          <view class="uploaded-file" wx:if="{{uploadedFile}}">
+            <text class="file-icon">✓</text>
+            <text class="file-name">{{uploadedFile}}</text>
+            <text class="file-size">({{fileSize}})</text>
+          </view>
+        </view>
+
+        <view class="input-group">
+          <text class="label">评估要求</text>
+          <textarea class="textarea" placeholder="请输入评估要求，如重点检查内容、格式要求等" bindinput="bindEvaluateInput" value="{{evaluateRequirements}}" />
+        </view>
+
+        <view class="input-group">
+          <text class="label">评估维度</text>
+          <view class="checkbox-group">
+            <view class="checkbox-item" wx:for="{{evaluationDimensions}}" wx:key="index" bindtap="toggleDimension" data-index="{{index}}">
+              <view class="checkbox {{item.checked ? 'checked' : ''}}">
+                <text class="checkbox-icon" wx:if="{{item.checked}}">✓</text>
+              </view>
+              <text class="checkbox-label">{{item.name}}</text>
+            </view>
+          </view>
+        </view>
+
+        <button class="evaluate-button" bindtap="evaluatePaper" disabled="{{evaluating}}">
+          {{evaluating ? '评估中...' : '开始评估'}}
+        </button>
+      </view>
+    </view>
+  </view>
+</scroll-view>

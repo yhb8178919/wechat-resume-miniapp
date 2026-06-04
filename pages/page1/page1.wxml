@@ -1,0 +1,47 @@
+<!--page1.wxml-->
+<navigation-bar title="AI生成简历" back="{{true}}" color="black" background="#FFF"></navigation-bar>
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="container">
+    <view class="page-content">
+      <view class="page-header">
+        <text class="page-desc">使用AI智能生成专业简历</text>
+      </view>
+      
+      <view class="content-section">
+        <view class="input-group">
+          <text class="label">个人姓名</text>
+          <input class="input" placeholder="请输入您的姓名" bindinput="bindTopicInput" value="{{topic}}" />
+        </view>
+        
+        <view class="input-group">
+          <text class="label">简历类型</text>
+          <picker class="picker" mode="selector" range="{{resumeTypes}}" bindchange="bindTypeChange">
+            <view class="picker-text">{{resumeTypes[selectedType] || '请选择简历类型'}}</view>
+          </picker>
+        </view>
+
+        <view class="input-group">
+          <text class="label">工作经验</text>
+          <input class="input" placeholder="请输入工作经验年限" bindinput="bindWordCountInput" value="{{wordCount}}" />
+        </view>
+
+        <view class="input-group">
+          <text class="label">个人技能</text>
+          <textarea class="textarea" placeholder="请输入您的专业技能、证书等" bindinput="bindRequirementsInput" value="{{requirements}}" />
+        </view>
+
+        <button class="generate-button" bindtap="generatePaper" disabled="{{generating}}">
+          {{generating ? '生成中...' : '生成简历'}}
+        </button>
+
+        <view class="result-area" wx:if="{{generatedPaper}}">
+          <view class="result-header">
+            <text class="result-title">生成结果</text>
+            <text class="copy-button" bindtap="copyPaper">复制</text>
+          </view>
+          <text class="result-content">{{generatedPaper}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>

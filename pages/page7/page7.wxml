@@ -1,0 +1,11 @@
+<!--page7.wxml-->
+<navigation-bar title="求职攻略" back="{{true}}" color="black" background="#FFF"></navigation-bar>
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="container">
+    <view class="page-content">
+      <view class="page-header">
+        <text class="page-desc">简历投递技巧与面试经验分享</text>
+      </view>
+    </view>
+  </view>
+</scroll-view>

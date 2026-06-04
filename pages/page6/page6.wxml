@@ -1,0 +1,11 @@
+<!--page6.wxml-->
+<navigation-bar title="面试题库" back="{{true}}" color="black" background="#FFF"></navigation-bar>
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="container">
+    <view class="page-content">
+      <view class="page-header">
+        <text class="page-desc">高频面试题目与专业答题思路</text>
+      </view>
+    </view>
+  </view>
+</scroll-view>

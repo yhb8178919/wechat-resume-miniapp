@@ -1,0 +1,135 @@
+<!--defense.wxml-->
+<navigation-bar title="AI简历面试" back="{{true}}" color="black" background="#FFF"></navigation-bar>
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="container">
+    <view class="page-content">
+      <view class="page-header">
+        <text class="page-desc">模拟简历面试过程，准备回答问题</text>
+      </view>
+
+      <!-- 三、面试完成 -->
+      <view class="defense-end-card" wx:if="{{isDefenseEnded}}">
+        <view class="end-celebrate">
+          <text class="end-emoji">🎉</text>
+          <text class="end-title">面试完成</text>
+          <text class="end-sub">您已完成所有面试问题，表现不错！</text>
+        </view>
+        
+        <view class="end-score-row">
+          <view class="end-score-item">
+            <view class="end-score-circle green">
+              <text class="end-score-num">{{totalQuestions}}</text>
+            </view>
+            <text class="end-score-label">总问题数</text>
+          </view>
+          <view class="end-score-item">
+            <view class="end-score-circle blue">
+              <text class="end-score-num">{{correctAnswers}}</text>
+            </view>
+            <text class="end-score-label">回答优良数</text>
+          </view>
+          <view class="end-score-item">
+            <view class="end-score-circle orange">
+              <text class="end-score-num">{{passRate}}%</text>
+            </view>
+            <text class="end-score-label">优良率</text>
+          </view>
+        </view>
+
+        <view class="end-actions">
+          <button class="end-btn primary" bindtap="resetDefense">再次面试</button>
+          <button class="end-btn outline" bindtap="navigateBack">返回首页</button>
+        </view>
+      </view>
+
+      <!-- 简历信息卡片 -->
+      <view class="card info-card" wx:if="{{!isDefenseEnded && !isDefenseStarted}}">
+        <view class="card-header">
+          <text class="card-icon">📋</text>
+          <text class="card-title">简历信息</text>
+        </view>
+        <view class="card-body">
+          <view class="form-row">
+            <text class="form-label">个人姓名</text>
+            <input class="form-input" placeholder="请输入您的姓名" bindinput="bindTitleInput" value="{{paperTitle}}" />
+          </view>
+          <view class="form-row">
+            <text class="form-label">背景描述</text>
+            <textarea class="form-textarea" placeholder="请简要描述个人背景和求职意向（300字以内）" bindinput="bindContentInput" value="{{paperContent}}" maxlength="300" />
+          </view>
+          <view class="form-row-actions">
+            <button class="btn-outline-sm" bindtap="importFile">导入简历</button>
+          </view>
+        </view>
+      </view>
+
+      <!-- 面试进程（开始后） -->
+      <block wx:if="{{!isDefenseEnded && isDefenseStarted}}">
+          <!-- 进度条 -->
+          <view class="progress-bar-wrap">
+            <view class="progress-bar-track">
+              <view class="progress-bar-fill" style="width: {{(currentQuestionIndex + 1) / questions.length * 100}}%"></view>
+            </view>
+            <text class="progress-bar-text">{{currentQuestionIndex + 1}} / {{questions.length}}</text>
+          </view>
+
+          <!-- 问题卡片 -->
+          <view class="card question-card" wx:if="{{currentQuestion}}">
+            <view class="card-header question-header">
+              <text class="card-icon">💡</text>
+              <text class="card-title">问题 {{currentQuestionIndex + 1}}</text>
+            </view>
+            <view class="card-body question-body">
+              <text class="question-text">{{currentQuestion}}</text>
+            </view>
+          </view>
+
+          <!-- 回答输入区 -->
+          <view class="card answer-card" wx:if="{{!currentFeedback}}">
+            <view class="card-header">
+              <text class="card-icon">✍️</text>
+              <text class="card-title">我的回答</text>
+            </view>
+            <view class="card-body">
+              <textarea class="form-textarea answer-box" placeholder="请输入您的回答..." bindinput="bindAnswerInput" value="{{userAnswer}}" />
+              <button class="btn-primary" bindtap="submitAnswer" disabled="{{!userAnswer || userAnswer.length === 0}}">提交回答</button>
+            </view>
+          </view>
+
+          <!-- AI反馈区 -->
+          <view class="card feedback-card" wx:if="{{currentFeedback}}">
+            <view class="card-header feedback-header">
+              <text class="card-icon">🤖</text>
+              <text class="card-title">AI 反馈</text>
+            </view>
+            <view class="card-body">
+              <text class="feedback-text">{{currentFeedback}}</text>
+              <button class="btn-primary" bindtap="nextQuestion">{{isLastQuestion ? '查看结果' : '下一题'}}</button>
+            </view>
+          </view>
+        </block>
+
+      <!-- 控制按钮 -->
+      <view class="control-section" wx:if="{{!isDefenseEnded}}">
+        <button class="btn-green" bindtap="startDefense" disabled="{{isDefenseStarted}}">开始面试</button>
+        <button class="btn-red" bindtap="resetDefense">重新开始</button>
+      </view>
+
+      <!-- 历史记录 -->
+      <view class="history-section" wx:if="{{defenseHistory.length > 0}}">
+        <view class="section-bar">
+          <text class="section-bar-text">历史面试记录</text>
+        </view>
+        <view class="history-list">
+          <view class="history-item" wx:for="{{defenseHistory}}" wx:key="index">
+            <view class="history-item-top">
+              <text class="history-title">{{item.paperTitle}}</text>
+              <text class="history-score" wx:if="{{item.correctAnswers}}">{{item.correctAnswers}}/{{item.totalQuestions}}</text>
+            </view>
+            <text class="history-date">{{item.date}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>

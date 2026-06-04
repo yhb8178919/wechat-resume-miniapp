@@ -1,0 +1,116 @@
+<!--page4.wxml-->
+<navigation-bar title="历史记录" back="{{true}}" color="black" background="#FFF"></navigation-bar>
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="container">
+    <view class="page-content">
+      <view class="page-header">
+        <text class="page-desc">查看您的使用历史记录</text>
+      </view>
+
+      <scroll-view class="tabs-scroll" scroll-x enhanced show-scrollbar="{{false}}">
+        <view class="tabs">
+          <view class="tab-item {{currentTab === 0 ? 'active' : ''}}" bindtap="switchTab" data-index="0">
+            <text class="tab-text">生成记录</text>
+          </view>
+          <view class="tab-item {{currentTab === 1 ? 'active' : ''}}" bindtap="switchTab" data-index="1">
+            <text class="tab-text">评估记录</text>
+          </view>
+          <view class="tab-item {{currentTab === 2 ? 'active' : ''}}" bindtap="switchTab" data-index="2">
+            <text class="tab-text">职业推荐</text>
+          </view>
+          <view class="tab-item {{currentTab === 3 ? 'active' : ''}}" bindtap="switchTab" data-index="3">
+            <text class="tab-text">AI面试</text>
+          </view>
+        </view>
+      </scroll-view>
+
+      <!-- 生成记录 -->
+      <view class="history-list" wx:if="{{currentTab === 0}}">
+        <view wx:if="{{generationHistory.length === 0}}" class="empty-state">
+          <text class="empty-icon">📝</text>
+          <text class="empty-text">暂无生成记录</text>
+          <text class="empty-hint">点击首页的"AI生成简历"开始使用</text>
+        </view>
+        <view wx:for="{{generationHistory}}" wx:key="index" class="history-item">
+          <view class="history-header">
+            <text class="history-title">{{item.topic}}</text>
+            <text class="history-time">{{item.time}}</text>
+          </view>
+          <text class="history-type">{{item.type}}</text>
+          <text class="history-preview">{{item.preview}}</text>
+          <view class="history-actions">
+            <text class="action-button" bindtap="viewDetail" data-type="generation" data-index="{{index}}">查看详情</text>
+            <text class="action-button delete" bindtap="deleteRecord" data-type="generation" data-index="{{index}}">删除</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 评估记录 -->
+      <view class="history-list" wx:if="{{currentTab === 1}}">
+        <view wx:if="{{evaluationHistory.length === 0}}" class="empty-state">
+          <text class="empty-icon">🔍</text>
+          <text class="empty-text">暂无评估记录</text>
+          <text class="empty-hint">点击首页的"AI评估简历"开始使用</text>
+        </view>
+        <view wx:for="{{evaluationHistory}}" wx:key="index" class="history-item">
+          <view class="history-header">
+            <text class="history-title">{{item.fileName}}</text>
+            <text class="history-time">{{item.time}}</text>
+          </view>
+          <text class="history-preview">{{item.preview}}</text>
+          <view class="history-actions">
+            <text class="action-button" bindtap="viewDetail" data-type="evaluation" data-index="{{index}}">查看详情</text>
+            <text class="action-button delete" bindtap="deleteRecord" data-type="evaluation" data-index="{{index}}">删除</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 职业推荐记录 -->
+      <view class="history-list" wx:if="{{currentTab === 2}}">
+        <view wx:if="{{careerHistory.length === 0}}" class="empty-state">
+          <text class="empty-icon">🎯</text>
+          <text class="empty-text">暂无职业推荐记录</text>
+          <text class="empty-hint">点击首页的"职业推荐"功能开始使用</text>
+        </view>
+        <view wx:for="{{careerHistory}}" wx:key="index" class="history-item">
+          <view class="history-header">
+            <text class="history-title">{{item.topic || '未命名'}}</text>
+            <text class="history-time">{{item.time}}</text>
+          </view>
+          <text class="history-type">职业推荐</text>
+          <view class="career-tags" wx:if="{{item.recommendations}}">
+            <text class="career-tag" wx:for="{{item.recommendations}}" wx:for-item="r" wx:key="job">{{r.job}}</text>
+          </view>
+          <view class="history-actions">
+            <text class="action-button" bindtap="viewDetail" data-type="career" data-index="{{index}}">查看详情</text>
+            <text class="action-button delete" bindtap="deleteRecord" data-type="career" data-index="{{index}}">删除</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- AI面试记录 -->
+      <view class="history-list" wx:if="{{currentTab === 3}}">
+        <view wx:if="{{defenseHistory.length === 0}}" class="empty-state">
+          <text class="empty-icon">💬</text>
+          <text class="empty-text">暂无AI面试记录</text>
+          <text class="empty-hint">点击首页的"AI简历面试"功能开始使用</text>
+        </view>
+        <view wx:for="{{defenseHistory}}" wx:key="index" class="history-item">
+          <view class="history-header">
+            <text class="history-title">{{item.paperTitle || '面试记录'}}</text>
+            <text class="history-time">{{item.date || item.time}}</text>
+          </view>
+          <text class="history-type">AI面试</text>
+          <view class="defense-summary">
+            <text class="defense-score" wx:if="{{item.totalQuestions}}">{{item.correctAnswers}}/{{item.totalQuestions}} 通过</text>
+            <text class="defense-meta">{{item.questions ? item.questions.length : 0}} 个问题</text>
+          </view>
+          <view class="history-actions">
+            <text class="action-button" bindtap="viewDetail" data-type="defense" data-index="{{index}}">查看详情</text>
+            <text class="action-button delete" bindtap="deleteRecord" data-type="defense" data-index="{{index}}">删除</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>

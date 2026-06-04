@@ -1,0 +1,30 @@
+<navigation-bar title="职业推荐详情" back="{{true}}" color="black" background="#FFF"></navigation-bar>
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="container">
+    <view class="page-content">
+      <view class="detail-card">
+        <view class="detail-header">
+          <text class="detail-title">{{record.topic || '未命名'}}</text>
+          <text class="detail-time">{{record.time}}</text>
+        </view>
+        <view class="detail-section" wx:if="{{record.content}}">
+          <text class="section-label">简历内容</text>
+          <text class="section-text">{{record.content}}</text>
+        </view>
+        <view class="detail-section">
+          <text class="section-label">推荐结果 ({{record.recommendations ? record.recommendations.length : 0}}项)</text>
+          <view class="rec-list">
+            <view class="rec-item" wx:for="{{record.recommendations}}" wx:key="job">
+              <view class="rec-rank">{{index + 1}}</view>
+              <view class="rec-body">
+                <text class="rec-job">{{item.job}}</text>
+                <text class="rec-desc">{{item.description}}</text>
+                <text class="rec-reason">推荐理由：{{item.reason}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>

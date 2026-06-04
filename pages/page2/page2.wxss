@@ -1,0 +1,142 @@
+/* page2.wxss - AI评估简历 */
+
+.content-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.upload-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12rpx;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
+  width: 100%;
+}
+
+.label {
+  font-size: 26rpx;
+  font-weight: 600;
+  color: #2C3E50;
+}
+
+.textarea {
+  width: 100%;
+  height: 180rpx;
+  border: 1rpx solid #E8ECF1;
+  border-radius: 10rpx;
+  padding: 20rpx;
+  font-size: 28rpx;
+  color: #2C3E50;
+  box-sizing: border-box;
+  background-color: #FFFFFF;
+}
+
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12rpx;
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  padding: 16rpx;
+  background-color: #FFFFFF;
+  border-radius: 10rpx;
+  border: 1rpx solid #E8ECF1;
+}
+
+.checkbox {
+  width: 40rpx;
+  height: 40rpx;
+  border: 2rpx solid #CCC;
+  border-radius: 8rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 14rpx;
+  transition: all 0.2s ease;
+}
+
+.checkbox.checked {
+  background-color: #2196F3;
+  border-color: #2196F3;
+}
+
+.checkbox-icon {
+  color: #FFFFFF;
+  font-size: 24rpx;
+  font-weight: bold;
+}
+
+.checkbox-label {
+  font-size: 26rpx;
+  color: #2C3E50;
+}
+
+.evaluate-button {
+  width: 100%;
+  height: 88rpx;
+  background-color: #2196F3;
+  color: #FFFFFF;
+  font-size: 28rpx;
+  font-weight: 600;
+  border-radius: 12rpx;
+  margin-top: 10rpx;
+}
+
+.evaluate-button[disabled] {
+  background-color: #CCC;
+  opacity: 0.55;
+}
+
+.result-area {
+  width: 100%;
+  padding: 24rpx;
+  border: 1rpx solid #E8ECF1;
+  border-radius: 12rpx;
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  gap: 15rpx;
+}
+
+.result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.result-title {
+  font-size: 28rpx;
+  font-weight: 700;
+  color: #2C3E50;
+}
+
+.result-actions {
+  display: flex;
+  gap: 15rpx;
+}
+
+.action-button {
+  font-size: 24rpx;
+  color: #2196F3;
+  padding: 8rpx 20rpx;
+  border: 1rpx solid #2196F3;
+  border-radius: 8rpx;
+  text-align: center;
+}
+
+.result-content {
+  font-size: 26rpx;
+  color: #666;
+  line-height: 1.7;
+  white-space: pre-wrap;
+}

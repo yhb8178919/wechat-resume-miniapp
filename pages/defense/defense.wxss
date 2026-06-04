@@ -1,0 +1,422 @@
+/* defense.wxss - AI简历面试 */
+
+/* ═══════════════════════════════════════════
+   通用卡片
+   ═══════════════════════════════════════════ */
+.card {
+  background-color: #FFFFFF;
+  border-radius: 14rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0,0,0,0.04);
+  margin-bottom: 16rpx;
+  overflow: hidden;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  padding: 18rpx 20rpx 0 20rpx;
+}
+
+.card-icon {
+  font-size: 32rpx;
+  margin-right: 10rpx;
+}
+
+.card-title {
+  font-size: 28rpx;
+  font-weight: 700;
+  color: #2C3E50;
+}
+
+.card-body {
+  padding: 16rpx 20rpx 20rpx 20rpx;
+}
+
+/* ═══════════════════════════════════════════
+   分区标题
+   ═══════════════════════════════════════════ */
+.section-bar {
+  display: flex;
+  align-items: center;
+  margin-bottom: 14rpx;
+  padding-left: 14rpx;
+  border-left: 5rpx solid #2196F3;
+}
+
+.section-bar-text {
+  font-size: 26rpx;
+  font-weight: 700;
+  color: #2C3E50;
+}
+
+/* ═══════════════════════════════════════════
+   表单（Skyline 兼容）
+   ═══════════════════════════════════════════ */
+.form-row {
+  margin-bottom: 16rpx;
+}
+
+.form-row-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.form-label {
+  display: block;
+  font-size: 24rpx;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 8rpx;
+  line-height: 1.4;
+  flex-shrink: 0;
+}
+
+/* input - Skyline fix: 显式 height + flex-shrink */
+.form-input {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 80rpx;
+  padding: 0 20rpx;
+  border: 1px solid #E0E4E8;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+  color: #2C3E50;
+  background-color: #FAFBFC;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+/* textarea - Skyline fix: 显式 height（非 min-height）+ flex-shrink */
+.form-textarea {
+  display: block;
+  width: 100%;
+  height: 180rpx;
+  padding: 18rpx 20rpx;
+  border: 1px solid #E0E4E8;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+  color: #2C3E50;
+  background-color: #FAFBFC;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  overflow-y: auto;
+}
+
+/* 回答框更大 */
+.answer-box {
+  height: 280rpx;
+}
+
+/* ═══════════════════════════════════════════
+   按钮体系
+   ═══════════════════════════════════════════ */
+.btn-primary {
+  width: 100%;
+  height: 80rpx;
+  background-color: #2196F3;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 12rpx;
+  font-size: 28rpx;
+  font-weight: 600;
+  margin-top: 14rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-green {
+  flex: 1;
+  height: 80rpx;
+  background-color: #4CAF50;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 12rpx;
+  font-size: 28rpx;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-red {
+  flex: 1;
+  height: 80rpx;
+  background-color: #F44336;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 12rpx;
+  font-size: 28rpx;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-outline-sm {
+  height: 56rpx;
+  padding: 0 20rpx;
+  background: none;
+  color: #2196F3;
+  border: 1px solid #2196F3;
+  border-radius: 8rpx;
+  font-size: 22rpx;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button[disabled] {
+  opacity: 0.5;
+}
+
+/* ═══════════════════════════════════════════
+   控制区
+   ═══════════════════════════════════════════ */
+.control-section {
+  display: flex;
+  gap: 14rpx;
+  margin-top: 4rpx;
+  margin-bottom: 20rpx;
+}
+
+/* ═══════════════════════════════════════════
+   进度条
+   ═══════════════════════════════════════════ */
+.progress-bar-wrap {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+
+.progress-bar-track {
+  flex: 1;
+  height: 8rpx;
+  background-color: #E8ECF1;
+  border-radius: 4rpx;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #2196F3, #42A5F5);
+  border-radius: 4rpx;
+  transition: width 0.4s ease;
+}
+
+.progress-bar-text {
+  font-size: 22rpx;
+  color: #666;
+  margin-left: 14rpx;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+/* ═══════════════════════════════════════════
+   问题卡片
+   ═══════════════════════════════════════════ */
+.question-header {
+  padding-bottom: 0;
+}
+
+.question-body {
+  padding-top: 12rpx;
+}
+
+.question-text {
+  font-size: 28rpx;
+  color: #2C3E50;
+  line-height: 1.7;
+}
+
+/* ═══════════════════════════════════════════
+   反馈卡片
+   ═══════════════════════════════════════════ */
+.feedback-card {
+  border: 1px solid #BBE1FA;
+}
+
+.feedback-header {
+  padding-bottom: 0;
+}
+
+.feedback-text {
+  font-size: 26rpx;
+  color: #1A5276;
+  line-height: 1.7;
+  background-color: #EBF5FB;
+  padding: 18rpx;
+  border-radius: 10rpx;
+  display: block;
+}
+
+/* ═══════════════════════════════════════════
+   面试完成卡片
+   ═══════════════════════════════════════════ */
+.defense-end-card {
+  background-color: #FFFFFF;
+  border-radius: 16rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0,0,0,0.06);
+  padding: 40rpx 30rpx 30rpx 30rpx;
+  margin-bottom: 20rpx;
+}
+
+.end-celebrate {
+  text-align: center;
+  margin-bottom: 30rpx;
+}
+
+.end-emoji {
+  font-size: 72rpx;
+  display: block;
+  margin-bottom: 14rpx;
+}
+
+.end-title {
+  font-size: 38rpx;
+  font-weight: 800;
+  color: #2C3E50;
+  display: block;
+  margin-bottom: 8rpx;
+}
+
+.end-sub {
+  font-size: 24rpx;
+  color: #999;
+  display: block;
+}
+
+.end-score-row {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 30rpx;
+}
+
+.end-score-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.end-score-circle {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12rpx;
+}
+
+.end-score-circle.green  { background-color: #E8F5E9; }
+.end-score-circle.blue   { background-color: #E3F2FD; }
+.end-score-circle.orange { background-color: #FFF3E0; }
+
+.end-score-num {
+  font-size: 32rpx;
+  font-weight: 800;
+  color: #2C3E50;
+}
+
+.green  .end-score-num { color: #2E7D32; }
+.blue   .end-score-num { color: #1565C0; }
+.orange .end-score-num { color: #E65100; }
+
+.end-score-label {
+  font-size: 20rpx;
+  color: #999;
+}
+
+.end-actions {
+  display: flex;
+  gap: 14rpx;
+}
+
+.end-btn {
+  flex: 1;
+  height: 80rpx;
+  border-radius: 12rpx;
+  font-size: 28rpx;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+}
+
+.end-btn.primary {
+  background-color: #2196F3;
+  color: #FFFFFF;
+}
+
+.end-btn.outline {
+  background: none;
+  color: #2196F3;
+  border: 1px solid #2196F3;
+}
+
+/* ═══════════════════════════════════════════
+   历史记录
+   ═══════════════════════════════════════════ */
+.history-section {
+  margin-top: 8rpx;
+  margin-bottom: 30rpx;
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10rpx;
+}
+
+.history-item {
+  background-color: #FFFFFF;
+  border-radius: 10rpx;
+  padding: 18rpx 20rpx;
+  box-shadow: 0 1rpx 8rpx rgba(0,0,0,0.03);
+}
+
+.history-item-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6rpx;
+}
+
+.history-title {
+  font-size: 26rpx;
+  font-weight: 600;
+  color: #2C3E50;
+}
+
+.history-score {
+  font-size: 22rpx;
+  font-weight: 700;
+  color: #2196F3;
+  background-color: #E3F2FD;
+  padding: 4rpx 14rpx;
+  border-radius: 20rpx;
+}
+
+.history-date {
+  font-size: 20rpx;
+  color: #999;
+}
+
+/* ═══════════════════════════════════════════
+   响应式
+   ═══════════════════════════════════════════ */
+@media (max-width: 375px) {
+  .control-section {
+    flex-direction: column;
+  }
+  .end-score-circle {
+    width: 80rpx;
+    height: 80rpx;
+  }
+  .end-score-num {
+    font-size: 26rpx;
+  }
+}

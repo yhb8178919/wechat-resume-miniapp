@@ -1,0 +1,97 @@
+.detail-card {
+  background: #FFFFFF;
+  border-radius: 14rpx;
+  padding: 28rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0,0,0,0.04);
+}
+
+.detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+  padding-bottom: 16rpx;
+  border-bottom: 1rpx solid #F0F2F5;
+}
+
+.detail-title {
+  font-size: 30rpx;
+  font-weight: 700;
+  color: #2C3E50;
+}
+
+.detail-time {
+  font-size: 20rpx;
+  color: #999;
+}
+
+.detail-section {
+  margin-bottom: 24rpx;
+}
+
+.section-label {
+  font-size: 26rpx;
+  font-weight: 600;
+  color: #666;
+  display: block;
+  margin-bottom: 10rpx;
+}
+
+.section-text {
+  font-size: 24rpx;
+  color: #333;
+  line-height: 1.6;
+}
+
+.rec-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14rpx;
+}
+
+.rec-item {
+  display: flex;
+  gap: 14rpx;
+  padding: 18rpx;
+  background: #F8FBFF;
+  border-radius: 10rpx;
+  border: 1rpx solid #E8ECF1;
+}
+
+.rec-rank {
+  width: 40rpx;
+  height: 40rpx;
+  background: #2196F3;
+  color: #FFF;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.rec-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6rpx;
+}
+
+.rec-job {
+  font-size: 26rpx;
+  font-weight: 700;
+  color: #2C3E50;
+}
+
+.rec-desc {
+  font-size: 24rpx;
+  color: #666;
+  line-height: 1.5;
+}
+
+.rec-reason {
+  font-size: 22rpx;
+  color: #999;
+}

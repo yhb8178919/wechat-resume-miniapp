@@ -1,0 +1,153 @@
+<!--index.wxml-->
+<navigation-bar title="AI简历助手" back="{{false}}" color="black" background="#FFF"></navigation-bar>
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="container">
+    <!-- 顶部横幅 -->
+    <view class="banner">
+      <view class="banner-content">
+        <view class="banner-line">
+          <text class="banner-title">AI智能职业规划</text>
+        </view>
+        <view class="banner-line">
+          <text class="banner-subtitle">智能简历分析与职业规划系统</text>
+        </view>
+        <view class="banner-line">
+          <text class="banner-desc">让选择职业变得简单高效</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 一、核心功能 -->
+    <view class="section">
+      <view class="section-header">
+        <text class="section-title">核心功能</text>
+        <text class="section-subtitle">AI 驱动的智能职业服务</text>
+      </view>
+      <view class="feature-grid">
+        <view class="feature-card" bindtap="navigateToCareer">
+          <view class="feature-icon">🎯</view>
+          <text class="feature-card-title">职业推荐</text>
+          <text class="feature-card-desc">根据简历智能推荐职业方向</text>
+        </view>
+        <view class="feature-card" bindtap="navigateToGenerate">
+          <view class="feature-icon">📝</view>
+          <text class="feature-card-title">AI生成简历</text>
+          <text class="feature-card-desc">输入信息智能生成专业简历</text>
+        </view>
+        <view class="feature-card" bindtap="navigateToEvaluate">
+          <view class="feature-icon">🔍</view>
+          <text class="feature-card-title">AI评估简历</text>
+          <text class="feature-card-desc">上传简历获取专业评估报告</text>
+        </view>
+        <view class="feature-card" bindtap="navigateToDefense">
+          <view class="feature-icon">🎓</view>
+          <text class="feature-card-title">AI简历面试</text>
+          <text class="feature-card-desc">模拟面试过程提升应对能力</text>
+        </view>
+        <view class="feature-card" bindtap="navigateToHistory">
+          <view class="feature-icon">📚</view>
+          <text class="feature-card-title">历史记录</text>
+          <text class="feature-card-desc">查看生成和评估历史记录</text>
+        </view>
+        <view class="feature-card" bindtap="navigateToProfile">
+          <view class="feature-icon">👤</view>
+          <text class="feature-card-title">个人中心</text>
+          <text class="feature-card-desc">管理个人信息和账号设置</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 二、实用工具 -->
+    <view class="section">
+      <view class="section-header">
+        <text class="section-title">实用工具</text>
+        <text class="section-subtitle">求职路上全方位的辅助功能</text>
+      </view>
+      <view class="tool-grid">
+        <view class="tool-card" bindtap="navigateToTemplate">
+          <view class="tool-icon-box icon-blue">
+            <text class="tool-icon">📋</text>
+          </view>
+          <view class="tool-info">
+            <text class="tool-title">简历模板</text>
+            <text class="tool-desc">精选各行业专业简历模板</text>
+          </view>
+          <text class="tool-arrow">›</text>
+        </view>
+        <view class="tool-card" bindtap="navigateToInterviewQA">
+          <view class="tool-icon-box icon-green">
+            <text class="tool-icon">💬</text>
+          </view>
+          <view class="tool-info">
+            <text class="tool-title">面试题库</text>
+            <text class="tool-desc">高频面试题目与答题思路</text>
+          </view>
+          <text class="tool-arrow">›</text>
+        </view>
+        <view class="tool-card" bindtap="navigateToSalary">
+          <view class="tool-icon-box icon-orange">
+            <text class="tool-icon">💰</text>
+          </view>
+          <view class="tool-info">
+            <text class="tool-title">薪资查询</text>
+            <text class="tool-desc">各行业岗位薪资水平参考</text>
+          </view>
+          <text class="tool-arrow">›</text>
+        </view>
+        <view class="tool-card" bindtap="navigateToSkillTest">
+          <view class="tool-icon-box icon-purple">
+            <text class="tool-icon">📊</text>
+          </view>
+          <view class="tool-info">
+            <text class="tool-title">技能测评</text>
+            <text class="tool-desc">自测专业技能掌握程度</text>
+          </view>
+          <text class="tool-arrow">›</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 三、求职资讯 -->
+    <view class="section">
+      <view class="section-header">
+        <text class="section-title">求职资讯</text>
+        <text class="section-subtitle">最新行业动态与职场干货</text>
+      </view>
+      <scroll-view class="news-scroll" scroll-x enhanced show-scrollbar="{{false}}">
+        <view class="news-list">
+          <view class="news-card" bindtap="openJobTips">
+            <view class="news-cover cover-blue">
+              <text class="news-icon">📖</text>
+            </view>
+            <text class="news-card-title">求职攻略</text>
+            <text class="news-card-desc">简历投递技巧与面试经验分享</text>
+          </view>
+          <view class="news-card" bindtap="openIndustry">
+            <view class="news-cover cover-green">
+              <text class="news-icon">📈</text>
+            </view>
+            <text class="news-card-title">行业分析</text>
+            <text class="news-card-desc">热门行业发展趋势与就业前景</text>
+          </view>
+          <view class="news-card" bindtap="openCareerWiki">
+            <view class="news-cover cover-orange">
+              <text class="news-icon">🏢</text>
+            </view>
+            <text class="news-card-title">职场百科</text>
+            <text class="news-card-desc">职场规则、劳动法规与权益</text>
+          </view>
+          <view class="news-card" bindtap="openTopCompanies">
+            <view class="news-cover cover-purple">
+              <text class="news-icon">🚀</text>
+            </view>
+            <text class="news-card-title">名企直通车</text>
+            <text class="news-card-desc">知名企业招聘动态与内推</text>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+
+    <!-- 底部留白 -->
+    <view class="bottom-space"></view>
+  </view>
+</scroll-view>

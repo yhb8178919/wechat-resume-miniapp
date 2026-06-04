@@ -1,0 +1,59 @@
+<!--result.wxml-->
+<navigation-bar title="{{title}}" back="{{true}}" color="black" background="#FFF"></navigation-bar>
+<view class="page-container">
+  <scroll-view class="scrollarea" scroll-y type="list">
+    <view class="container">
+      <view class="page-header result-page-header">
+        <text class="result-title">{{type}}</text>
+        <text class="result-time">{{time}}</text>
+      </view>
+      
+      <view wx:if="{{topic}}" class="result-meta">
+        <text class="meta-label">主题：</text>
+        <text class="meta-value">{{topic}}</text>
+      </view>
+      
+      <view wx:if="{{fileName}}" class="result-meta">
+        <text class="meta-label">文件名：</text>
+        <text class="meta-value">{{fileName}}</text>
+      </view>
+      
+      <!-- 评分卡片，仅在评估结果时显示 -->
+      <view wx:if="{{type === '简历评估' || type === '评估结果'}}">
+        <view class="score-card">
+          <view class="score-header">
+            <text class="score-title">评估得分</text>
+          </view>
+          <view class="score-content">
+            <view class="overall-score">
+              <text class="score-value">{{overallScore}}</text>
+              <text class="score-label">总体评分</text>
+            </view>
+            <view class="score-level">
+              <text class="level-value">{{scoreLevel}}</text>
+              <text class="level-label">竞争力等级</text>
+            </view>
+          </view>
+          <view class="score-progress">
+            <view class="progress-bar">
+              <view class="progress-fill" style="width: {{scorePercentage}}%"></view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class="result-content">
+        <text>{{content}}</text>
+      </view>
+    </view>
+  </scroll-view>
+  
+  <view class="result-actions">
+    <button class="action-button copy-button" bindtap="copyContent">
+      复制内容
+    </button>
+    <button class="action-button download-button" bindtap="downloadContent">
+      下载内容
+    </button>
+  </view>
+</view>
