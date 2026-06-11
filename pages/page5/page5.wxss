@@ -1,32 +1,25 @@
-/* page5.wxss */
-.scrollarea {
-  height: 100%;
+.page-title { font-size: 34rpx; font-weight: 700; color: #2C3E50; margin-bottom: 8rpx; }
+.template-grid { display: flex; flex-direction: column; gap: 16rpx; margin-top: 10rpx; padding-bottom: 30rpx; }
+.template-card {
+  background: #FFF; border-radius: 14rpx; padding: 24rpx 28rpx;
+  box-shadow: 0 2rpx 14rpx rgba(0,0,0,0.05);
+  position: relative; transition: all 0.2s;
 }
-
-.container {
-  padding: 20rpx;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
+.template-card.selected { border: 2rpx solid #2196F3; background: #F8FBFF; }
+.tpl-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8rpx; }
+.tpl-name { font-size: 30rpx; font-weight: 700; color: #2C3E50; }
+.tpl-loading { display: flex; align-items: center; }
+.loading-dot { color: #2196F3; font-size: 24rpx; animation: pulse 0.8s infinite; }
+@keyframes pulse { 0%,100%{opacity:0.3} 50%{opacity:1} }
+.tpl-desc { font-size: 24rpx; color: #666; line-height: 1.5; margin-bottom: 12rpx; }
+.tpl-tags { display: flex; gap: 10rpx; flex-wrap: wrap; }
+.tpl-tag {
+  font-size: 20rpx; color: #2196F3; background: #E3F2FD;
+  padding: 4rpx 14rpx; border-radius: 20rpx;
 }
-
-.page-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 80%;
+.tpl-arrow { position: absolute; right: 28rpx; top: 50%; transform: translateY(-50%); font-size: 36rpx; color: #CCC; }
+.generating-bar { 
+  position: fixed; bottom: 0; left: 0; right: 0; padding: 24rpx; 
+  background: #2196F3; text-align: center; 
 }
-
-.page-title {
-  font-size: 36rpx;
-  font-weight: bold;
-  margin-bottom: 20rpx;
-  color: #333;
-}
-
-.page-description {
-  font-size: 28rpx;
-  color: #666;
-}
+.generating-text { color: #FFF; font-size: 26rpx; font-weight: 500; }

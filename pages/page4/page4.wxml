@@ -21,6 +21,9 @@
           <view class="tab-item {{currentTab === 3 ? 'active' : ''}}" bindtap="switchTab" data-index="3">
             <text class="tab-text">AI面试</text>
           </view>
+          <view class="tab-item {{currentTab === 4 ? 'active' : ''}}" bindtap="switchTab" data-index="4">
+            <text class="tab-text">工具结果</text>
+          </view>
         </view>
       </scroll-view>
 
@@ -108,6 +111,27 @@
           <view class="history-actions">
             <text class="action-button" bindtap="viewDetail" data-type="defense" data-index="{{index}}">查看详情</text>
             <text class="action-button delete" bindtap="deleteRecord" data-type="defense" data-index="{{index}}">删除</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 工具结果记录 -->
+      <view class="history-list" wx:if="{{currentTab === 4}}">
+        <view wx:if="{{toolHistory.length === 0}}" class="empty-state">
+          <text class="empty-icon">🛠</text>
+          <text class="empty-text">暂无工具使用记录</text>
+          <text class="empty-hint">使用实用工具或求职资讯功能开始记录</text>
+        </view>
+        <view wx:for="{{toolHistory}}" wx:key="index" class="history-item">
+          <view class="history-header">
+            <text class="history-title">{{item.topic || item.title || '未命名'}}</text>
+            <text class="history-time">{{item.time}}</text>
+          </view>
+          <text class="history-type" style="background:{{item.tagBg}};color:{{item.tagColor}}">{{item.source}}</text>
+          <text class="history-preview">{{item.preview}}</text>
+          <view class="history-actions">
+            <text class="action-button" bindtap="viewDetail" data-type="tool" data-index="{{index}}">查看详情</text>
+            <text class="action-button delete" bindtap="deleteRecord" data-type="tool" data-index="{{index}}">删除</text>
           </view>
         </view>
       </view>

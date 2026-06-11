@@ -3,8 +3,10 @@ package com.example.controller;
 import com.example.service.DeepSeekService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.method.annotation.StreamingResponseBody;
 
 import java.util.Map;
 import java.util.UUID;
@@ -21,6 +23,7 @@ public class DeepSeekController {
         this.deepSeekService = deepSeekService;
     }
 
+    /** 标准非流式调用 */
     @PostMapping("/chat")
     public ResponseEntity<Map<String, Object>> chat(
             @RequestBody Map<String, String> request,
@@ -54,6 +57,32 @@ public class DeepSeekController {
             return ResponseEntity.status(500)
                     .body(Map.of("code", 500, "message", "AI服务调用失败：" + e.getMessage()));
         }
+    }
+
+    /** 流式调用 - 数据边生成边返回，大幅提升感知速度 */
+    @PostMapping("/chat/stream")
+    public ResponseEntity<StreamingResponseBody> chatStream(
+            @RequestBody Map<String, String> request,
+            @RequestHeader(value = "Authorization", required = false) String authToken) {
+
+        String userId = extractUserId(authToken);
+        String prompt = request.get("prompt");
+
+        if (prompt == null || prompt.trim().isEmpty()) {
+            return ResponseEntity.badRequest().build();
+        }
+
+        if (!deepSeekService.checkRateLimit(userId)) {
+            return ResponseEntity.status(429).build();
+        }
+
+        log.info("收到流式AI请求, userId: {}, prompt长度: {}", userId, prompt.length());
+
+        StreamingResponseBody stream = deepSeekService.callDeepSeekAPIStreaming(prompt.trim());
+
+        return ResponseEntity.ok()
+                .contentType(MediaType.TEXT_PLAIN)
+                .body(stream);
     }
 
     private String extractUserId(String token) {

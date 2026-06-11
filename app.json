@@ -13,6 +13,10 @@
     "pages/page6/page6",
     "pages/page7/page7",
     "pages/page8/page8",
+    "pages/page9/page9",
+    "pages/page10/page10",
+    "pages/page11/page11",
+    "pages/page12/page12",
     "pages/defense/defense",
     "pages/webview/webview",
     "pages/career-detail/career-detail",
@@ -24,15 +28,6 @@
   },
 
   "style": "v2",
-  "renderer": "skyline",
-  "rendererOptions": {
-    "skyline": {
-      "defaultDisplayBlock": true,
-      "defaultContentBox": true,
-      "disableABTest": true
-    }
-  },
-  "componentFramework": "glass-easel",
   "sitemapLocation": "sitemap.json",
   "lazyCodeLoading": "requiredComponents"
 }

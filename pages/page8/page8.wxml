@@ -1,10 +1,31 @@
-<!--page8.wxml-->
-<navigation-bar title="行业分析" back="{{true}}" color="black" background="#FFF"></navigation-bar>
+<navigation-bar title="技能测评" back="{{true}}" color="black" background="#FFF"></navigation-bar>
 <scroll-view class="scrollarea" scroll-y type="list">
   <view class="container">
     <view class="page-content">
       <view class="page-header">
-        <text class="page-desc">热门行业发展趋势与就业前景分析</text>
+        <text class="page-title">技能自测评</text>
+        <text class="page-desc">12个核心技能测试，AI生成评估标准与提升建议</text>
+      </view>
+
+      <view class="test-grid">
+        <view class="test-card {{selectedIndex === index ? 'sel' : ''}}"
+              wx:for="{{tests}}" wx:key="title"
+              bindtap="onTestTap" data-index="{{index}}">
+          <view class="tc-top">
+            <text class="tc-num">{{index + 1}}</text>
+            <text class="tc-level {{item.level === '高级' ? 'hi' : item.level === '中级' ? 'md' : 'lo'}}">{{item.level}}</text>
+          </view>
+          <text class="tc-title">{{item.title}}</text>
+          <text class="tc-desc">{{item.desc}}</text>
+          <view class="tc-foot">
+            <text class="tc-time">⏱ {{item.time}}</text>
+            <text class="tc-btn">开始测评 ›</text>
+          </view>
+        </view>
+      </view>
+
+      <view wx:if="{{evaluating}}" class="generating-bar">
+        <text class="generating-text">AI正在生成测评内容...</text>
       </view>
     </view>
   </view>

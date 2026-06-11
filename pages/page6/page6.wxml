@@ -1,10 +1,30 @@
-<!--page6.wxml-->
 <navigation-bar title="面试题库" back="{{true}}" color="black" background="#FFF"></navigation-bar>
 <scroll-view class="scrollarea" scroll-y type="list">
   <view class="container">
     <view class="page-content">
       <view class="page-header">
-        <text class="page-desc">高频面试题目与专业答题思路</text>
+        <text class="page-title">高频面试题库</text>
+        <text class="page-desc">20道精选面试题，AI提供专业答题思路与高分示例</text>
+      </view>
+
+      <view class="q-list">
+        <view class="q-card {{selectedIndex === index ? 'sel' : ''}}" 
+              wx:for="{{questions}}" wx:key="q"
+              bindtap="onQuestionTap" data-index="{{index}}">
+          <view class="q-top">
+            <text class="q-num">{{index + 1}}</text>
+            <view class="q-tags-inline">
+              <text class="q-cat">{{item.cat}}</text>
+              <text class="q-diff {{item.diff === '困难' ? 'hard' : item.diff === '中等' ? 'mid' : 'easy'}}">{{item.diff}}</text>
+            </view>
+          </view>
+          <text class="q-text">{{item.q}}</text>
+          <view class="q-arrow">›</view>
+        </view>
+      </view>
+
+      <view wx:if="{{searching}}" class="generating-bar">
+        <text class="generating-text">AI正在生成答题思路...</text>
       </view>
     </view>
   </view>

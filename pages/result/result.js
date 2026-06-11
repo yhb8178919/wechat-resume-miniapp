@@ -14,8 +14,22 @@ Page({
   onLoad(options) {
     console.log('Result page loaded with options:', options);
     
-    if (options.historyIndex) {
-      // 从历史记录中获取结果
+    if (options.fromHistory) {
+      // 从历史记录存储中获取（page4 设置）
+      const record = wx.getStorageSync('_viewHistoryRecord');
+      if (record) {
+        this.setData({
+          content: record.content,
+          type: record.type || record.fileName || '结果',
+          topic: record.topic || '',
+          fileName: record.fileName || '',
+          time: record.time,
+          title: '历史记录'
+        });
+        wx.removeStorageSync('_viewHistoryRecord');
+      }
+    } else if (options.historyIndex) {
+      // 从历史记录中获取结果（旧方式，兼容）
       const historyType = options.historyType || 'generation';
       const history = wx.getStorageSync(historyType + 'History') || [];
       const index = parseInt(options.historyIndex);

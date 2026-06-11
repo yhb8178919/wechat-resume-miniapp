@@ -12,7 +12,16 @@
       "outputPath": ""
     },
     "useCompilerPlugins": false,
-    "minifyWXML": true
+    "minifyWXML": true,
+    "compileWorklet": false,
+    "uploadWithSourceMap": true,
+    "packNpmManually": false,
+    "minifyWXSS": true,
+    "localPlugins": false,
+    "disableUseStrict": false,
+    "condition": false,
+    "swc": false,
+    "disableSWC": true
   },
   "compileType": "miniprogram",
   "simulatorPluginLibVersion": {},
@@ -20,15 +29,19 @@
     "ignore": [],
     "include": []
   },
-  "appid": "touristappid",
+  "appid": "wxf504891a8e549de3",
+  "condition": {
+    "miniprogram": {
+      "list": []
+    }
+  },
   "editorSetting": {},
   "networkTimeout": {
-    "request": 10000,
+    "request": 120000,
     "connectSocket": 10000,
     "uploadFile": 10000,
     "downloadFile": 10000
   },
-  "debugOptions": {
-    "hidedInDevtools": []
-  }
+  "libVersion": "3.15.0",
+  "isGameTourist": false
 }

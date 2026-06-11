@@ -46,35 +46,31 @@ Page({
     wx.navigateTo({ url: '/pages/page3/page3' });
   },
 
-  // ── 实用工具（外部链接）──
+  // ── 实用工具（本地AI页面）──
   navigateToTemplate() {
-    this.openUrl('https://wenku.baidu.com');
+    wx.navigateTo({ url: '/pages/page5/page5' });
   },
   navigateToInterviewQA() {
-    this.openUrl('https://wenku.baidu.com');
+    wx.navigateTo({ url: '/pages/page6/page6' });
   },
   navigateToSalary() {
-    this.openUrl('https://wenku.baidu.com');
+    wx.navigateTo({ url: '/pages/page7/page7' });
   },
   navigateToSkillTest() {
-    this.openUrl('https://wenku.baidu.com');
+    wx.navigateTo({ url: '/pages/page8/page8' });
   },
 
-  // ── 求职资讯（外部链接）──
+  // ── 求职资讯（本地AI页面）──
   openJobTips() {
-    // 求职攻略 - 知乎求职话题
-    this.openUrl('https://www.zhihu.com/topic/19551004');
+    wx.navigateTo({ url: '/pages/page9/page9' });
   },
   openIndustry() {
-    // 行业分析 - 36氪
-    this.openUrl('https://36kr.com');
+    wx.navigateTo({ url: '/pages/page10/page10' });
   },
   openCareerWiki() {
-    // 职场百科 - 脉脉
-    this.openUrl('https://maimai.cn');
+    wx.navigateTo({ url: '/pages/page11/page11' });
   },
   openTopCompanies() {
-    // 名企直通车 - BOSS直聘
-    this.openUrl('https://www.zhipin.com');
+    wx.navigateTo({ url: '/pages/page12/page12' });
   }
 })

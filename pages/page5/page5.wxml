@@ -1,10 +1,32 @@
-<!--page5.wxml-->
 <navigation-bar title="简历模板" back="{{true}}" color="black" background="#FFF"></navigation-bar>
 <scroll-view class="scrollarea" scroll-y type="list">
   <view class="container">
     <view class="page-content">
       <view class="page-header">
-        <text class="page-desc">精选各行业专业简历模板，一键套用</text>
+        <text class="page-title">精选简历模板</text>
+        <text class="page-desc">选择匹配的模板，AI自动生成专业简历框架</text>
+      </view>
+
+      <view class="template-grid">
+        <view class="template-card {{selectedIndex === index ? 'selected' : ''}}" 
+              wx:for="{{templates}}" wx:key="name" 
+              bindtap="onTemplateTap" data-index="{{index}}">
+          <view class="tpl-header">
+            <text class="tpl-name">{{item.name}}</text>
+            <view wx:if="{{selectedIndex === index && aiGenerating}}" class="tpl-loading">
+              <text class="loading-dot">●</text>
+            </view>
+          </view>
+          <text class="tpl-desc">{{item.desc}}</text>
+          <view class="tpl-tags">
+            <text class="tpl-tag" wx:for="{{item.tags}}" wx:for-item="tag" wx:key="*this">{{tag}}</text>
+          </view>
+          <view class="tpl-arrow">›</view>
+        </view>
+      </view>
+
+      <view wx:if="{{aiGenerating}}" class="generating-bar">
+        <text class="generating-text">AI正在生成模板框架...</text>
       </view>
     </view>
   </view>

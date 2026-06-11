@@ -14,15 +14,13 @@
         </view>
         
         <view class="input-group">
-          <text class="label">简历类型</text>
-          <picker class="picker" mode="selector" range="{{resumeTypes}}" bindchange="bindTypeChange">
-            <view class="picker-text">{{resumeTypes[selectedType] || '请选择简历类型'}}</view>
-          </picker>
+          <text class="label">所学专业</text>
+          <input class="input" placeholder="请输入您的专业（如：计算机科学）" bindinput="bindMajorInput" value="{{major}}" />
         </view>
 
         <view class="input-group">
           <text class="label">工作经验</text>
-          <input class="input" placeholder="请输入工作经验年限" bindinput="bindWordCountInput" value="{{wordCount}}" />
+          <input class="input" type="number" placeholder="请输入工作年限（0-60）" bindinput="bindWordCountInput" bindblur="bindWordCountBlur" value="{{wordCount}}" />
         </view>
 
         <view class="input-group">

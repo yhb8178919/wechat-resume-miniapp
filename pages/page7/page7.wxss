@@ -1,0 +1,16 @@
+.page-title { font-size: 34rpx; font-weight: 700; color: #2C3E50; margin-bottom: 8rpx; }
+.sal-list { display: flex; flex-direction: column; gap: 14rpx; margin-top: 10rpx; padding-bottom: 30rpx; }
+.sal-card {
+  background: #FFF; border-radius: 14rpx; padding: 24rpx 28rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0,0,0,0.05); display: flex; align-items: center; justify-content: space-between;
+}
+.sal-card.sel { border: 2rpx solid #FF9800; background: #FFF8E1; }
+.sal-left { flex: 1; }
+.sal-pos { font-size: 28rpx; font-weight: 700; color: #2C3E50; display: block; margin-bottom: 4rpx; }
+.sal-ind { font-size: 22rpx; color: #999; display: block; margin-bottom: 4rpx; }
+.sal-exp { font-size: 20rpx; color: #2196F3; }
+.sal-right { display: flex; align-items: center; gap: 8rpx; }
+.sal-amount { font-size: 28rpx; font-weight: 700; color: #FF9800; }
+.sal-arrow { font-size: 30rpx; color: #CCC; }
+.generating-bar { position: fixed; bottom: 0; left: 0; right: 0; padding: 24rpx; background: #FF9800; text-align: center; }
+.generating-text { color: #FFF; font-size: 26rpx; font-weight: 500; }

@@ -1,1 +1,30 @@
-/* webview.wxss */
+.back-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 88rpx;
+  padding-top: env(safe-area-inset-top);
+  background: rgba(255, 255, 255, 0.95);
+  display: flex;
+  align-items: center;
+  z-index: 999;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.back-btn {
+  width: 80rpx;
+  height: 88rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 20rpx;
+}
+
+.back-arrow {
+  width: 24rpx;
+  height: 24rpx;
+  border-left: 4rpx solid #333;
+  border-bottom: 4rpx solid #333;
+  transform: rotate(45deg);
+}

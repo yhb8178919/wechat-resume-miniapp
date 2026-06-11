@@ -1,2 +1,8 @@
 <!--webview.wxml-->
-<web-view src="{{url}}"></web-view>
+<web-view src="{{url}}">
+  <cover-view class="back-bar">
+    <cover-view class="back-btn" bindtap="goBack">
+      <cover-view class="back-arrow"></cover-view>
+    </cover-view>
+  </cover-view>
+</web-view>

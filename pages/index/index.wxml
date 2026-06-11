@@ -1,6 +1,6 @@
 <!--index.wxml-->
 <navigation-bar title="AI简历助手" back="{{false}}" color="black" background="#FFF"></navigation-bar>
-<scroll-view class="scrollarea" scroll-y type="list">
+<scroll-view class="scrollarea" scroll-y type="list" enable-flex>
   <view class="container">
     <!-- 顶部横幅 -->
     <view class="banner">
@@ -113,7 +113,7 @@
         <text class="section-title">求职资讯</text>
         <text class="section-subtitle">最新行业动态与职场干货</text>
       </view>
-      <scroll-view class="news-scroll" scroll-x enhanced show-scrollbar="{{false}}">
+      <scroll-view class="news-scroll" scroll-x enhanced show-scrollbar="{{false}}" enable-flex>
         <view class="news-list">
           <view class="news-card" bindtap="openJobTips">
             <view class="news-cover cover-blue">

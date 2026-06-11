@@ -1,23 +1,29 @@
 {
   "libVersion": "3.15.0",
-  "projectname": "miniprogram",
+  "projectname": "wechat_obj1",
+  "compileType": "miniprogram",
   "setting": {
-    "urlCheck": true,
+    "urlCheck": false,
     "coverView": true,
     "lazyloadPlaceholderEnable": false,
     "skylineRenderEnable": false,
     "preloadBackgroundData": false,
     "autoAudits": false,
     "showShadowRootInWxmlPanel": true,
-    "compileHotReLoad": true
+    "compileHotReLoad": true,
+    "useApiHook": true,
+    "useStaticServer": false,
+    "useLanDebug": false,
+    "showES6CompileOption": false,
+    "checkInvalidKey": true,
+    "ignoreDevUnusedFiles": true,
+    "bigPackageSizeSupport": false
   },
   "networkTimeout": {
-    "request": 10000,
+    "request": 120000,
     "connectSocket": 10000,
     "uploadFile": 10000,
     "downloadFile": 10000
   },
-  "debugOptions": {
-    "hidedInDevtools": []
-  }
+  "condition": {}
 }
